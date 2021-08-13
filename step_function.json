@@ -4,7 +4,7 @@
   "States": {
     "Run Ingest Job": {
       "Type": "Task",
-      "InputPath": "$.topic",
+      "InputPath": "$.input",
       "ResultPath": "$.ingestResult",
       "Resource": "arn:aws:states:::ecs:runTask.sync",
       "Parameters": {
@@ -17,7 +17,7 @@
               "Environment": [
                 {
                   "Name": "TOPIC",
-                  "Value": "$.topic"
+                  "Value.$": "$.topic"
                 }
               ]
             }
