@@ -11,10 +11,9 @@ This repo contains code for a step function definition to be used for orchestrat
 ```json
 {
     "stateMachineArn": "",
-    "name": "",
-    "input": "",
-    "traceHeader": ""
+    "input": "{\"input\": {\"topic\": \"${TOPIC_TO_FILTER_ON}\"}}"
 }
+
 ```
 ## Usage
 
