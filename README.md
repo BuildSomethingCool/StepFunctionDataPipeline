@@ -18,5 +18,6 @@ This repo contains code for a step function definition to be used for orchestrat
 ## Usage
 
 ```bash
+# Start the execution via the AWS CLI
 aws stepfunctions start-execution --cli-input-json fileb://cli_input.json
 ```
