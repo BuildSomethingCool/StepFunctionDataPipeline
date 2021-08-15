@@ -1,4 +1,4 @@
 {
     "stateMachineArn": "",
-    "input": "{\"input\": {\"topic\": \"${TOPIC_TO_FILTER_ON}\"}}"
+    "input": "{\"input\": {\"topic\": \"Lebron James\", \"s3_bucket_store\": \"${S3_BUCKET_NAME}\"}}"
 }
