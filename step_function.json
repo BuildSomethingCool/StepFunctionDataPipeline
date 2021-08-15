@@ -18,6 +18,10 @@
                 {
                   "Name": "TOPIC",
                   "Value.$": "$.topic"
+                },
+                {
+                  "Name": "S3_BUCKET",
+                  "Value.$": "$.s3_bucket_store"
                 }
               ]
             }
