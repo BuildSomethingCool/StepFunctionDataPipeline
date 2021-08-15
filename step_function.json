@@ -57,6 +57,59 @@
             "Value": "Twitter Stream"
           }
         ]
+      }
+    },
+    "Run Export Job": {
+      "Type": "Task",
+      "InputPath": "$.input",
+      "ResultPath": "$.rawExportResult",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "Cluster": "arn:aws:ecs:us-east-2:777377719930:cluster/twitterIngest",
+        "TaskDefinition": "export_raw_index",
+        "Overrides": {
+          "ContainerOverrides": [
+            {
+              "Name": "ExportRawIngest",
+              "Environment": [
+                {
+                  "Name": "INPUT_STORE",
+                  "Value.$": "sqs"
+                }
+              ]
+            }
+          ]
+        },
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": [
+              "sg-0e600787b167e2041"
+            ],
+            "Subnets": [
+              "subnet-05f131cd7a316feaa"
+            ]
+          }
+        },
+        "CapacityProviderStrategy": [
+          {
+            "CapacityProvider": "FARGATE_SPOT",
+            "Weight": 1,
+            "Base": 0
+          }
+        ],
+        "EnableECSManagedTags": true,
+        "PlatformVersion": "LATEST",
+        "Tags": [
+          {
+            "Key": "owner",
+            "Value": "mikebrumfield30@gmail.com"
+          },
+          {
+            "Key": "Project",
+            "Value": "Twitter Stream"
+          }
+        ]
       },
       "End": true
     }
