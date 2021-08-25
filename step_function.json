@@ -57,7 +57,8 @@
             "Value": "Twitter Stream"
           }
         ]
-      }
+      },
+      "Next" : "Run Export Job"
     },
     "Run Export Job": {
       "Type": "Task",
@@ -70,11 +71,11 @@
         "Overrides": {
           "ContainerOverrides": [
             {
-              "Name": "ExportRawIngest",
+              "Name": "export_raw_index",
               "Environment": [
                 {
                   "Name": "INPUT_STORE",
-                  "Value.$": "sqs"
+                  "Value": "sqs"
                 }
               ]
             }
